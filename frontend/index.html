@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="trivia-game.css">
+    <title>Trivia Hack</title>
+</head>
+<body id="body">
+    <header>
+        <h1 class="home-page-title"> <img id="logo" src="trivia-hack-logo.png" alt=""></h1>
+    </header>
+    <!-- NAVBAR -->
+    <nav class="z-depth-0 transparent lighten-4">
+    <div class="nav-wrapper container">
+        <a href="#" class="brand-logo">
+    </a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li class="logged-in" style="display: none;">
+            <a href="#" class="black-text modal-trigger" data-target="modal-account">Account</a>
+        </li>
+        <li class="logged-in" style="display: none;">
+            <a href="#" class="black-text" id="logout">Logout</a>
+        </li>
+        <li class="logged-out" style="display: none;">
+            <a href="#" class="black-text modal-trigger" data-target="modal-login">Login</a>
+        </li>
+        <li class="logged-out" style="display: none;">
+            <a href="#" class="black-text modal-trigger" data-target="modal-signup">Sign up</a>
+        </li>
+    </ul>
+    </div>
+    </nav>
+
+<!-- SIGN UP MODAL -->
+<div id="modal-signup" class="modal">
+    <div class="modal-content">
+      <h4>Sign up</h4><br />
+        <form id="signup-form">
+        <div class="input-field">
+            <input type="email" id="signup-email" required />
+            <label for="signup-email">Email address</label>
+        </div>
+        <div class="input-field">
+            <input type="password" id="signup-password" required />
+            <label for="signup-password">Choose password</label>
+        </div>
+        <button class="btn yellow darken-2 z-depth-0">Sign up</button>
+        <p class="error red-text center-align"></p>
+      </form>
+    </div>
+  </div>
+
+    <!-- LOGIN MODAL -->
+    <div id="modal-login" class="modal">
+        <div class="modal-content">
+          <h4>Login</h4><br />
+          <form id="login-form">
+            <div class="input-field">
+              <input type="email" id="login-email" required />
+              <label for="login-email">Email address</label>
+            </div>
+            <div class="input-field">
+              <input type="password" id="login-password" required />
+              <label for="login-password">Your password</label>
+            </div>
+            <button class="btn yellow darken-2 z-depth-0">Login</button>
+            <p class="error red-text center-align"></p>
+          </form>
+        </div>
+      </div>
+
+    <!-- ACCOUNT MODAL -->
+    <div id="modal-account" class="modal">
+      <div class="modal-content center-align">
+        <h4>Account details</h4><br />
+        <div class="account-details"></div>
+      </div>
+    </div>  
+    
+    <!-- TRIVIA GAME -->
+    <div id="container">
+        <button id="btnNext">Give Me A Question</button>
+        <div id="category"></div>
+        <div id="question"></div>
+        <div id="answer"><button id="btnDisplayAnswer">Show answer</button></div>
+    </div>
+
+
+<script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-firestore.js"></script>
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyAks-d-mhdAqAnTJHz0yVBRuW0FdYIUTIg",
+    authDomain: "trivia-hack-b5f33.firebaseapp.com",
+    projectId: "trivia-hack-b5f33",
+    appId: "1:804524757588:web:9e3b138310bb47726a93c1",
+    measurementId: "G-84609D54C0"
+  };
+  firebase.initializeApp(firebaseConfig);
+
+//   make auth firestore references
+const auth = firebase.auth();
+const db = firebase.firestore();
+
+// update firestore settings
+db.settings({ timestampsInSnapshots: true });
+</script>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="scripts/auth.js"></script>
+    <script src="scripts/index.js"></script>
+</body>
+</html>

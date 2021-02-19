@@ -1,0 +1,30 @@
+#container{
+    color: black;
+    margin: 10px;
+    border: 1px solid black;
+    background-color: white;
+    border-radius: 10px;
+    border-width: medium;
+}
+
+button {
+    width: 100%;
+    background: rgb(80,128,213);
+    background: linear-gradient(90deg, rgba(80,128,213,1) 0%, rgba(106,84,219,1) 47%, rgba(62,44,88,1) 100%);
+    border-color: black;
+}
+
+#question{
+    color: white;
+    background: rgb(80,128,213);
+    background: linear-gradient(90deg, rgba(80,128,213,1) 0%, rgba(106,84,219,1) 47%, rgba(62,44,88,1) 100%);
+    border: 1px solid black ;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+#answer{
+    display: none;
+}
+
